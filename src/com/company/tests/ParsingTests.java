@@ -40,4 +40,11 @@ public class ParsingTests {
         InputParse.parse("o 1");
         assertTrue(InputParse.getTasks(1).getIsTodo());
     }
+
+    @Test
+    public void testParseRemove() throws Exception {
+        String input = "- 1";
+        InputParse.parse(input);
+        assertEquals(null, InputParse.getTasks(1));
+    }
 }
