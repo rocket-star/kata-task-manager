@@ -33,8 +33,11 @@ public class ParsingTests {
 
     @Test
     public void testParseO() throws Exception {
-        String input = "o 1";
+        // add Learn Python
+        String input = "+ Learn Python";
         InputParse.parse(input);
+
+        InputParse.parse("o 1");
         assertTrue(InputParse.getTasks(1).getIsTodo());
     }
 }
