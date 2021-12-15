@@ -20,4 +20,11 @@ public class ParsingTests {
         InputParse.parse(input);
         assertTrue(InputParse.getTasks(1).getIsDone());
     }
+
+    @Test
+    public void testParseO() throws Exception {
+        String input = "o 1";
+        InputParse.parse(input);
+        assertTrue(InputParse.getTasks(1).getIsTodo());
+    }
 }
