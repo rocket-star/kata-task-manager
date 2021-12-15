@@ -31,4 +31,19 @@ public class Task {
     public void setTodo() {
         isTodo = true;
     }
+
+    public String toString(){
+        String s = "[";
+
+        if(isDone){
+            s+="x]";
+        }else if(isTodo){
+            s+="o]";
+        }else{
+            s+="]";
+        }
+
+        s+= " "+ description;
+        return s;
+    }
 }

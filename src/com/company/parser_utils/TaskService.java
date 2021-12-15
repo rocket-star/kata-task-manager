@@ -1,6 +1,7 @@
 package com.company.parser_utils;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class TaskService {
 
@@ -22,5 +23,13 @@ public class TaskService {
 
     public void removeTaskById(int id) {
         tasks.remove(id);
+    }
+
+    public String toString(){
+        String s = "";
+        for(Map.Entry<Integer, Task> t : tasks.entrySet()) {
+            s+= t.getKey() +" " + t.getValue().toString() +"\n";
+        }
+        return s;
     }
 }
