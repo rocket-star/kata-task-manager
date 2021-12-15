@@ -1,7 +1,6 @@
 package com.company.tests;
 
 import com.company.parser_utils.InputParse;
-import com.company.parser_utils.Task;
 import org.testng.annotations.Test;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;

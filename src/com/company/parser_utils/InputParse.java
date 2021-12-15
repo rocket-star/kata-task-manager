@@ -2,17 +2,24 @@ package com.company.parser_utils;
 
 public class InputParse {
 
+    private final static char ADD_SYMBOL = '+';
+    private final static char DONE_SYMBOL = 'x';
+
     private static TaskService taskService = new TaskService();
 
     public static void parse(String input) {
-        if(input.charAt(0) == '+'){
-            taskService.addTask(new Task(input.split("\\+")[1].trim()));
-        }else if(input.charAt(0) == 'x'){
-            taskService.getTask(Integer.parseInt(input.split("x")[1].trim())).setDone();
+        if (input.charAt(0) == ADD_SYMBOL) {
+            taskService.addTask(new Task(extract(input, "\\" + ADD_SYMBOL)));
+        } else if(input.charAt(0) == DONE_SYMBOL) {
+            taskService.getTask(Integer.parseInt(extract(input, String.valueOf(DONE_SYMBOL)))).setDone();
         }
     }
 
     public static Task getTasks(int id) {
         return taskService.getTask(id);
+    }
+
+    private static String extract(String input, String symbol) {
+        return input.split(symbol)[1].trim();
     }
 }

@@ -16,23 +16,7 @@ public class TaskService {
         tasks.put(++nbTasks, task);
     }
 
-    public void doneTask(int id){
-        tasks.get(id).setDone();
-    }
-
     public Task getTask(int id) {
         return tasks.get(id);
-    }
-
-    public void setTasks(HashMap<Integer, Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    public int getNbTasks() {
-        return nbTasks;
-    }
-
-    public void setNbTasks(int nbTasks) {
-        this.nbTasks = nbTasks;
     }
 }

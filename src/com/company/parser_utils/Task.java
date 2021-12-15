@@ -1,12 +1,8 @@
 package com.company.parser_utils;
 
-import java.util.HashMap;
-
 public class Task {
-    // Description de la task
-    private String description;
 
-    // Etat de la task
+    private String description;
     private boolean isDone;
 
     public Task(String description){
@@ -16,10 +12,6 @@ public class Task {
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public boolean getIsDone() {
