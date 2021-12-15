@@ -19,8 +19,4 @@ public class IHM implements IHMInterface {
     public void write(String message) {
         System.out.println(message);
     }
-
-    public void closeIHM(){
-        sc.close();
-    }
 }
