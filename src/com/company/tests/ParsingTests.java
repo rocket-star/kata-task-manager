@@ -1,11 +1,18 @@
 package com.company.tests;
 
 import com.company.parser_utils.InputParse;
+import org.junit.Before;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class ParsingTests {
+
+    @Before
+    public void init() throws ClassNotFoundException {
+        Class.forName("com.company.parser_utils.InputParse");
+    }
 
     @Test
     public void testParsePlus() throws Exception {
@@ -16,8 +23,11 @@ public class ParsingTests {
 
     @Test
     public void testParseX() throws Exception {
-        String input = "x 1";
+        // add Learn Python
+        String input = "+ Learn Python";
         InputParse.parse(input);
+
+        InputParse.parse("x 1");
         assertTrue(InputParse.getTasks(1).getIsDone());
     }
 
