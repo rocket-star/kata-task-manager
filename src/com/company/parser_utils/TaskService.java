@@ -19,4 +19,8 @@ public class TaskService {
     public Task getTask(int id) {
         return tasks.get(id);
     }
+
+    public void removeTaskById(int id) {
+        tasks.remove(id);
+    }
 }

@@ -1,50 +1,56 @@
 package com.company.tests;
 
 import com.company.parser_utils.InputParse;
+import com.company.parser_utils.TaskService;
 import org.junit.Before;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ParsingTests {
 
+    private TaskService taskService = new TaskService();
+
     @Before
     public void init() throws ClassNotFoundException {
-        Class.forName("com.company.parser_utils.InputParse");
+        System.out.println("test");
     }
 
     @Test
     public void testParsePlus() throws Exception {
-       String input = "+ Learn Python";
-       InputParse.parse(input);
-        assertEquals("Learn Python", InputParse.getTasks(1).getDescription());
+        String input = "+ Learn Python";
+        InputParse.parse(input, taskService);
+        assertEquals("Learn Python", taskService.getTask(1).getDescription());
     }
 
     @Test
     public void testParseX() throws Exception {
         // add Learn Python
         String input = "+ Learn Python";
-        InputParse.parse(input);
+        InputParse.parse(input, taskService);
 
-        InputParse.parse("x 1");
-        assertTrue(InputParse.getTasks(1).getIsDone());
+        InputParse.parse("x 1", taskService);
+        assertTrue(taskService.getTask(1).getIsDone());
     }
 
     @Test
     public void testParseO() throws Exception {
         // add Learn Python
         String input = "+ Learn Python";
-        InputParse.parse(input);
+        InputParse.parse(input, taskService);
 
-        InputParse.parse("o 1");
-        assertTrue(InputParse.getTasks(1).getIsTodo());
+        InputParse.parse("o 1", taskService);
+        assertTrue(taskService.getTask(1).getIsTodo());
     }
 
     @Test
     public void testParseRemove() throws Exception {
-        String input = "- 1";
-        InputParse.parse(input);
-        assertEquals(null, InputParse.getTasks(1));
+        // add Learn Python
+        String input = "+ Learn Python";
+        InputParse.parse(input, taskService);
+
+        InputParse.parse("- 1", taskService);
+        assertEquals(null, taskService.getTask(1));
     }
 }
