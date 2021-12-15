@@ -11,14 +11,14 @@ public class ParsingTests {
     @Test
     public void testParsePlus() throws Exception {
        String input = "+ Learn Python";
-       Task result = InputParse.parse(input);
-        assertEquals("Learn Python", result.getDescription());
+       InputParse.parse(input);
+        assertEquals("Learn Python", InputParse.getTasks(1).getDescription());
     }
 
     @Test
     public void testParseX() throws Exception {
         String input = "x 1";
-        Task result = InputParse.parse(input);
-        assertTrue(InputParse.getTasks(1).getDone());
+        InputParse.parse(input);
+        assertTrue(InputParse.getTasks(1).getIsDone());
     }
 }
