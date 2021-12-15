@@ -1,8 +1,9 @@
 package com.company.tests;
 
-import com.company.parser_utils.InputParse;
+import com.company.fake.FakeIHM;
 import org.junit.Before;
-import org.testng.annotations.Test;
+import org.junit.Test;
+
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -18,6 +19,6 @@ public class IHMTests {
     public void testInput() throws Exception {
         String input = "+ Learn Python";
         fakeIHM.write(input);
-        assertEquals("+ Learn Python", fakeIHM.getReadWords().get(0));
+        assertEquals("+ Learn Python", fakeIHM.getPrintedWords().get(0));
     }
 }
